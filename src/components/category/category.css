@@ -1,0 +1,10 @@
+.status-log {
+  margin: 1rem 10rem;
+}
+
+#updated-log {
+  padding: 0.5rem 1rem;
+  background-color: #0290ff;
+  color: #e8e8e8;
+  border: none;
+}
