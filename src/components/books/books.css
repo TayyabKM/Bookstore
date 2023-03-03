@@ -1,0 +1,44 @@
+.book {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 7rem;
+  margin: 2rem 10rem;
+  padding: 2rem;
+  background: white;
+}
+
+.holder {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+h1 {
+  font-size: 1.2rem;
+}
+
+.button-options {
+  margin-top: 1rem;
+}
+
+button {
+  font-size: 1rem;
+}
+
+.author {
+  color: #4386bf;
+}
+
+#remove {
+  padding: 0 1rem;
+  border-left: 1px solid #b3b3b3;
+  border-right: 1px solid #b3b3b3;
+}
+
+.action {
+  background: none;
+  border: none;
+  margin-right: 1rem;
+  color: #4386bf;
+}
