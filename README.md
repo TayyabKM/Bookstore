@@ -200,6 +200,11 @@ If you like this project feel free to leave a star.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
+I would like to thank:
+- React.js
+- Microverse 
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FAQ (optional) -->
