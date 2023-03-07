@@ -5,13 +5,13 @@ import BookContainer from './components/bookContainer/BookContainer';
 import Nav from './components/navbar/Navbar';
 import Categories from './components/category/Category';
 import './App.css';
-import store from './redux/configureStore';
+import store from './redux/configurestore';
 
 class App extends React.PureComponent {
   render() {
     return (
       <div className="App">
-       <Provider store={store}>
+        <Provider store={store}>
           <BrowserRouter>
             <Nav />
             <Routes>

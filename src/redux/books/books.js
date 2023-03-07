@@ -1,8 +1,8 @@
 // Actions
-const ADD = "bookstore-1/books/ADD";
-const UPDATE = "bookstore-1/books/UPDATE";
-const DELETE = "bookstore-1/books/DELETE";
-const LOAD = "bookstore-1/books/LOAD";
+const ADD = 'bookstore-1/books/ADD';
+const UPDATE = 'bookstore-1/books/UPDATE';
+const DELETE = 'bookstore-1/books/DELETE';
+const LOAD = 'bookstore-1/books/LOAD';
 
 // Reducer
 export const reducer = (state = [], action = {}) => {
