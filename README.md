@@ -53,7 +53,7 @@ After you're finished please remove all the comments and instructions!
 
 # 📖 [Bookstore] <a name="about-project"></a>
 
-In this project I lay the foundations for a Bookstore website. The React part of the app and set up routing using React Router. Also styling has been added to make it look like the desired template.
+In this project I lay the foundations for a Bookstore website. The React part of the app and set up routing using React Router. Also styling has been added to make it look like the desired template. React actions and reducers have also been introduced.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -172,7 +172,7 @@ To run tests, run the following command:
 
 > Describe 1 - 3 features you will add to the project.
 
-- [ ] **[add reducers and actions]**
+- [ ] **[use Redux in React components.]**
 - [ ] **[new_feature_2]**
 - [ ] **[new_feature_3]**
 
