@@ -1,9 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import './AddBooks.css';
+import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+import { createBook } from '../../redux/books/books';
 
-const AddBook = (props) => {
-  const { title, author } = props;
+const AddBook = () => {
+  const [titleInput, setTitleInput] = useState('');
+
+  const [authorInput, setAuthorInput] = useState('');
+
+  const titleSet = (e) => {
+    setTitleInput(e.target.value);
+  };
+
+  const authorSet = (e) => {
+    setAuthorInput(e.target.value);
+  };
+
+  const dispatch = useDispatch();
+
+  const id = uuidv4();
+
   return (
     <section className="addingBook">
       <h1>Add a new book</h1>
@@ -12,27 +29,24 @@ const AddBook = (props) => {
           type="text"
           id="title"
           name="title"
-          value={title}
-          placeholder="BookTitle"
+          onChange={titleSet}
+          value={titleInput}
+          placeholder="Title"
         />
         <input
           type="text"
           id="author"
           name="author"
-          value={author}
+          onChange={authorSet}
+          value={authorInput}
           placeholder="Author"
         />
-        <button type="button" name="add" id="add">
+        <button onClick={() => dispatch(createBook(id, titleInput, authorInput))} type="button" name="add" id="add">
           Add Book
         </button>
       </form>
     </section>
   );
-};
-
-AddBook.propTypes = {
-  title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
 };
 
 export default AddBook;
