@@ -28,7 +28,7 @@ nav li {
 }
 
 .user-details {
-  padding: 0.8rem;
+  padding: 1rem;
   background-color: #fafafa;
   border: 1px solid #e8e8e8;
   border-radius: 50%;
@@ -36,4 +36,5 @@ nav li {
 
 .person {
   color: #0290ff;
+  font-size: 20px;
 }

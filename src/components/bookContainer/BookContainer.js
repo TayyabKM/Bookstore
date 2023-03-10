@@ -20,6 +20,7 @@ const BookContainer = () => {
             title={book.title}
             author={book.author}
             id={book.id}
+            category={book.category}
           />
         ))}
       </section>
