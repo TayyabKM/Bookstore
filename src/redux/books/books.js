@@ -1,66 +1,76 @@
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { addAPI, fetchAPI, removeAPI } from '../../components/API/API';
+
 // Actions
 const ADD = 'bookstore-1/books/ADD';
 const UPDATE = 'bookstore-1/books/UPDATE';
 const DELETE = 'bookstore-1/books/DELETE';
-const LOAD = 'bookstore-1/books/LOAD';
 
-const defaultState = [
-  {
-    id: 1,
-    author: 'Suzanne Collins',
-    title: 'The Hunger Games',
+const fetchBooks = createAsyncThunk(
+  UPDATE,
+  async () => {
+    const response = await fetchAPI();
+    return response;
   },
+);
 
-  {
-    id: 2,
-    author: 'Leo Toystoy',
-    title: 'Anna Karenina',
+const addBook = createAsyncThunk(
+  ADD,
+  async (Obj) => {
+    await addAPI(Obj);
+    return Obj;
   },
+);
 
-  {
-    id: 3,
-    author: 'Franck Herbert',
-    title: 'Dune',
+const removeBook = createAsyncThunk(
+  DELETE,
+  async (id) => {
+    await removeAPI(id);
+    return id;
   },
-];
+);
 
-// Reducer
-export const booksReducer = (state = defaultState, action = {}) => {
-  switch (action.type) {
-    case ADD:
-      return [...state, {
-        id: action.id,
-        title: action.title,
-        author: action.author,
-      }];
-
-    case UPDATE: {
-      return state;
-    }
-
-    case DELETE:
-      return state.filter((book) => (book.id !== action.id));
-
-    case LOAD: {
-      return state;
-    }
-
-    default: {
-      return state;
-    }
-  }
+const initialState = {
+  status: null,
+  entities: [],
 };
 
-// Action Creators
-export const createBook = (id, title, author) => ({
-  type: ADD,
-  id,
-  title,
-  author,
+const handleBookSlice = createSlice({
+  name: 'handleBook',
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchBooks.fulfilled, (state, action) => {
+      const newBookList = [];
+      Object.entries(action.payload).forEach((item) => {
+        newBookList.push({
+          id: item[0],
+          title: item[1][0].title,
+          author: item[1][0].author,
+        });
+      });
+      return {
+        ...state,
+        entities: newBookList,
+      };
+    });
+    builder.addCase(addBook.fulfilled, (state, action) => {
+      const newBook = {
+        id: action.payload.item_id,
+        title: action.payload.title,
+        author: action.payload.author,
+      };
+      return {
+        ...state,
+        entities: [...state.entities, newBook],
+      };
+    });
+    builder.addCase(removeBook.fulfilled, (state, action) => ({
+      ...state,
+      entities: state.entities.filter((book) => book.id !== action.payload),
+    }));
+  },
 });
 
-export const loadBooks = () => ({ type: LOAD });
-
-export const deleteBook = (id) => ({ type: DELETE, id });
-
-export const updateBook = (book) => ({ type: UPDATE, book });
+export default handleBookSlice.reducer;
+export { fetchBooks, addBook, removeBook };
