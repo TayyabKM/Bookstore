@@ -2,11 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './books.css';
 import { useDispatch } from 'react-redux';
-import { deleteBook } from '../../redux/books/books';
+import { removeBook } from '../../redux/books/books';
 
 const Books = (props) => {
   const { title, author, id } = props;
   const dispatch = useDispatch();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(removeBook(id));
+  };
   return (
     <section className="book-container">
       <ul className="book-list">
@@ -16,7 +20,7 @@ const Books = (props) => {
             <p className="author">{author}</p>
             <div className="button-options">
               <button
-                type="button"
+                type="submit"
                 id="comment"
                 name="comment"
                 className="action"
@@ -24,18 +28,16 @@ const Books = (props) => {
                 Comments
               </button>
               <button
-                type="button"
+                type="submit"
                 id="remove"
                 name="remove"
                 className="action"
-                onClick={() => {
-                  dispatch(deleteBook(id));
-                }}
+                onClick={handleSubmit}
               >
                 Remove
               </button>
               <button
-                type="button"
+                type="submit"
                 id="edit"
                 name="edit"
                 className="action"
