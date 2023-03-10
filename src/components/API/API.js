@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 const apiBaseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
 const appKey = 'tGYU0gInQdN2XymM2qeO/';
 const apiURL = apiBaseURL + appKey;
