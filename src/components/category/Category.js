@@ -11,7 +11,7 @@ const Categories = () => {
   return (
     <div className="status-log">
       <div>
-        {categories.map((category) => (
+        {categories && categories.map((category) => (
           <p key={category}>
             {category}
           </p>
