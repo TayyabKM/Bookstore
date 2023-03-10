@@ -86,7 +86,7 @@ In this project I lay the foundations for a Bookstore website. The React part of
 
 > Describe between 1-3 key features of the application.
 
-- **[Using Redux in React components.]**
+- **[Connection to API]**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -172,7 +172,7 @@ To run tests, run the following command:
 
 > Describe 1 - 3 features you will add to the project.
 
-- [ ] **[connecting to API]**
+- [ ] **[styling]**
 - [ ] **[new_feature_2]**
 - [ ] **[new_feature_3]**
 
